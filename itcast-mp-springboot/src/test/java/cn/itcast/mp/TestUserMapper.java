@@ -21,7 +21,7 @@ public class TestUserMapper {
     @Test
     public void testInsert() {
         User user = new User();
-        user.setEmail("1@itcast.cn");
+        user.setMail("1@itcast.cn");
         user.setAge(30);
         user.setUserName("caocao");
         user.setName("曹操1");
@@ -31,6 +31,23 @@ public class TestUserMapper {
         System.out.println("result => " + result);
         //获取自增长后的id值, 自增长后的id值会回填到user对象中
         System.out.println("id => " + user.getId());
+    }
+
+    @Test
+    public void testSelectById() {
+        User user = this.userMapper.selectById(2L);
+        System.out.println(user);
+    }
+
+    @Test
+    public void testUpdateById() {
+        User user = new User();
+        user.setId(1L); //条件，根据id更新
+        user.setAge(19); //更新的字段
+        user.setPassword("666666");
+
+        int result = this.userMapper.updateById(user);
+        System.out.println("result => " + result);
     }
 
 }
