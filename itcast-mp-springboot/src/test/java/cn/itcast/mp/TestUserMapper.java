@@ -3,6 +3,7 @@ package cn.itcast.mp;
 import cn.itcast.mp.mapper.UserMapper;
 import cn.itcast.mp.pojo.User;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,18 @@ public class TestUserMapper {
 
         //根据条件做更新
         int result = this.userMapper.update(user, wrapper);
+        System.out.println("result => " + result);
+    }
+
+    @Test
+    public void testUpdate2() {
+
+        UpdateWrapper<User> wrapper = new UpdateWrapper<>();
+        wrapper.set("age", 21).set("password", "999999") //更新的字段
+                .eq("user_name", "zhangsan"); //更新的条件
+
+        //根据条件做更新
+        int result = this.userMapper.update(null, wrapper);
         System.out.println("result => " + result);
     }
 
