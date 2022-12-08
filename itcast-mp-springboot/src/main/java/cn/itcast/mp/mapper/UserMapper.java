@@ -8,6 +8,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @Date 2022 12 06 20 21
  **/
 
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper extends MyBaseMapper<User> {
     User findById(Long id);
 }
